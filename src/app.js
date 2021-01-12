@@ -2,12 +2,14 @@ const express = require('express')
 const log = console.log
 const app = express()
 const fs = require('fs')
+const port = process.env.PORT || 4201
+
 const { send } = require('process')
 const path = require('path')
 const hbs = require('hbs')
 const geoCode = require('./utils/geoCode.js')
 const displayweather = require('./utils/displayWeather.js')
-// Define paths for Express config
+
 const publiCDirec = path.join(__dirname, '../public')
 const viewPath = path.join(__dirname, '../templates/views')
 const partialsPath = path.join(__dirname, '../templates/partials')
@@ -119,8 +121,8 @@ app.get('*', (req, res)=> {
 
 
 // Set up port and start server
-app.listen(4201, ()=> {
-    console.log('Serer is up on port 4201.')
+app.listen(port, ()=> {
+    console.log('Serer is up on port ' + port)
 })
 
 

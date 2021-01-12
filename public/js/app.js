@@ -38,7 +38,7 @@ let date = ''
 
 displayWeather = ()=> {
     let location = document.getElementById('fname').value;
-    fetch('http://localhost:4201/getWeather?address=' + location).then((response)=> {
+    fetch('/getWeather?address=' + location).then((response)=> {
       response.json().then((data)=> {
         console.log(data);
         document.getElementById('response').style.display = 'block';

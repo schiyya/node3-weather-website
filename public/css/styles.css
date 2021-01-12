@@ -1,0 +1,165 @@
+body {
+    font-family:  Helvetica;
+    background-color: rgb(241, 234, 234);
+    text-shadow: 1px 1px 15px grey;
+}
+
+#core {
+    position: relative;
+    margin: 25px;
+    padding: 0, 16px;
+}
+
+h1 {
+    text-align: center;
+    color: black;
+    font-size: 44px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+
+h2 {
+    position: fixed;
+    left: 0;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+h3 {
+    font-size: 12px;
+    float: right;
+    position: fixed;
+}
+
+img {
+    width: 50%;
+    height: 50%;
+}
+
+p{
+    color:black;
+    font-weight: bold;
+    width: auto;
+}
+
+.errorText {
+    position: relative;
+    top: 25px;
+    text-align: center;
+}
+
+#label {
+    background-color: rgb(223, 202, 190);
+    font-weight: bold;
+    color:black;
+    padding: 5px;
+}
+
+#date{
+    position: absolute;
+    font-weight: bold;
+    color:black;
+    padding: 5px;
+    right: 18px;
+    
+}
+
+#fname:hover {
+    cursor: auto;
+    border: 1px solid #cccccc;
+    padding: 8px;
+}
+
+#fname {
+    border: 1px solid #cccccc;
+    padding: 8px;
+}
+
+button {
+    padding: 8px;
+    border: 1px solid #cccccc;;
+}
+
+button:hover {
+    background-color: #888888;
+    border: 1px solid #888888;
+    cursor: pointer;
+    color: white;
+  }
+
+
+  #response {
+    display: none;
+    padding: 10px;
+    margin: 10px;
+    font-weight:bold;
+    position: relative;  
+    width: auto;
+    height: 150px;
+    color: black;
+  }
+
+  #weatherDiv {
+    position: relative;
+    left: 10%;
+    top: 80px;
+    }
+
+  #weatherIcon {
+      width:50px;
+      height:50px;
+      margin-right: 25px;
+  }
+
+  #weather {
+    position: relative;
+    top: 15px;
+    left: 10px;
+  }
+
+
+
+  ul {
+      position: relative;
+      display: flex;
+      top: 0em;
+      margin-block-start: 0em;
+      margin-block-end: 0em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      padding-inline-start: 0px;
+        justify-content: center;
+        text-align: center;
+  }
+
+  li {
+      margin:0.75em;
+      list-style: none;
+      font-weight: bold;
+      padding: 5px;
+      width: fit-content;
+      font-size: 1em;
+  }
+
+  a {
+      color: black;
+  }
+
+    li:hover {
+        cursor: pointer;
+    }
+
+    .flexer {
+        position: relative;
+        top: 5%;
+        display: flex;
+        left: 2%;
+    }

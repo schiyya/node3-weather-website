@@ -42,11 +42,10 @@ app.get('/about', (req, res)=> {
     })
 })
 
-app.get('/ravi', (req, res)=> {
-    res.render('help', {
+app.get('/news', (req, res)=> {
+    res.render('news', {
         title,
-        message: "Need help.",
-        name: "Sumanth",
+        message: "News",
         date
     })
 })
@@ -131,9 +130,11 @@ let updateDateTime = () => {
     var n = date.toDateString();
     var time = date.toLocaleTimeString();
     date = n + ' ' + time;
-    setTimeout(()=> {
-        updateDateTime();
-    }, 1000)
+    // setTimeout(()=> {
+    //     updateDateTime();
+    // }, 1000)
   }
 
  updateDateTime()
+
+

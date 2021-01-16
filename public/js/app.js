@@ -79,6 +79,9 @@ let updateWorldWeather = ()=> {
         cityTextDiv.innerHTML = '<b>' + data.location + '</b>' + '<br>' + data.weather;
         let cityImageDiv = document.querySelector('#city-weather-image' + listItem)
         cityImageDiv.src = data.icon
+        let cityWeatherInfoDiv = document.querySelector('#city-weather-info-text' + listItem)
+        let weatherInfo = data.weatherData
+        cityWeatherInfoDiv.innerHTML = `Cloud Cover:${weatherInfo.cloudcover} <br> Humidity:${weatherInfo.humidity} <br> UV-Index:${weatherInfo.uv_index}  <br> Visibility:${weatherInfo.visibility}`
         listItem++
       })
     }
@@ -95,18 +98,30 @@ let fetcher = (location, id) => {
 }
 
 let builder = (id) => {
+  let letters = '9ABCDEF'.split('');
+  let color = '#F';
+  for (var i = 0; i < 5; i++ ) {
+      color += letters[Math.floor(Math.random() * 7)];
+  }
+  // color = color + 'DD'
   let weatherdiv = document.createElement("div");
   weatherdiv.setAttribute('id', 'city-weather' + id)
   let weatherdivImg = document.createElement("img")
   weatherdivImg.setAttribute('id', 'city-weather-image' + id)
   let weatherdivText = document.createElement('div')
   weatherdivText.setAttribute('id', 'city-weather-text' + id)
+  weatherdivText.setAttribute('class', 'city-weather-text')
+  let weatherInfoText = document.createElement('div')
+  weatherInfoText.setAttribute('id', 'city-weather-info-text' + id)
+  weatherInfoText.setAttribute('class', 'city-weather-info-text')
   let cityImage = document.createElement('img')
   cityImage.src = '../images/' + id + '.jpeg'
   cityImage.setAttribute('class', 'city')
   weatherdiv.appendChild(weatherdivImg)
+  weatherdiv.appendChild(weatherInfoText)
   weatherdiv.appendChild(weatherdivText)
   weatherdiv.appendChild(cityImage)
+  weatherdiv.style.backgroundColor = color
   worldLocations.appendChild(weatherdiv)
 }
 

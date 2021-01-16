@@ -125,7 +125,7 @@ app.get('/getWeather2', (req, res)=> {
             const {lat, lon} = response
             displayweather (lat, lon, units, (err, resp)=> {
                 if (err || resp.body.success === false) {
-                    return console.log('There is an error')
+                    return console.log('There is an error: Request Failed in main api')
                 }
                 res.send({
                     title,
@@ -134,7 +134,7 @@ app.get('/getWeather2', (req, res)=> {
                     location : `${resp.body.location.region}, ${resp.body.location.country}`,
                     weather: `Now ${resp.body.current.temperature} F <br> Feels like ${resp.body.current.feelslike}`,
                     icon: resp.body.current.weather_icons[0],
-                    resp: resp.body
+                    weatherData: resp.body.current
                 })
             })
         })

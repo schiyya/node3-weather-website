@@ -3,6 +3,7 @@ body {
     background-color:rgba(0, 0, 0, 0.8);
     text-shadow: 1px 1px 15px black;
     color: white;
+    background-image: url('../images/mainBg.jpeg');
 }
 
 #core {
@@ -58,6 +59,7 @@ h3 {
 img {
     width: auto;
     height: 500px;
+    border-radius: 5px;
 }
 
 p{
@@ -120,7 +122,7 @@ a {
 
 #fname:hover {
     cursor: auto;
-    border: 1px solid #cccccc;
+    border: 1px solid #f3eff1;
     padding: 8px;
 }
 
@@ -145,14 +147,23 @@ button:hover {
   #response {
     display: none;
     font-weight:bold;
-    position: relative;  
-    width: auto;
+    position: relative;
+    padding: 10px 0px 0px 10px;
+    width: 500px;
     height: 100px;
+    background-color: #ffffffdd;
+    color:black;
+    border-radius: 10px;
+    text-shadow: 0px 0px 5px white;
+  }
+
+  #response:hover {
+    transform: scale(1.2);
   }
 
   #weatherDiv {
     position: relative;
-    left: 34%;
+    left: 3%;
     top: 5px;
     height: 230px;
     }
@@ -184,6 +195,7 @@ button:hover {
     width: 200px;
     left: 50%;
     transform: translate(-50%);
+    border-radius: 5px;
 }
 
 .worldLocations {
@@ -195,7 +207,7 @@ button:hover {
 
 #world-container {
     top: 20px;
-    overflow: scroll;
+    overflow-y: scroll;
     height: 680px;
 }
 
@@ -208,6 +220,9 @@ button:hover {
     padding: 20px 0;
     font-size: 18px;
     height: auto;
+    border-radius: 5px;
+    transition: transform .4s; /* Animation */
+    display: flex;
   }
 
   .worldLocations > div > img {
@@ -215,12 +230,39 @@ button:hover {
     height: 60px;
     float: left;
     margin: 0px 20px 0px 10px;
+    border-radius: 5px;
   }
 
+
+  .worldLocations > div > .city-weather-info-text {
+    width: 120px;
+    height: auto;
+    margin: 0px 5px 0px 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: left;
+    font-size: 16px;
+    top: 10px;
+  }
+
+  .worldLocations > div > .city-weather-text {
+    width: 140px;
+    height: auto;
+    margin: 0px 5px 0px 5px;
+    text-align: center;
+    font-size: 18px;
+    top: 10px;
+  }
+  
+  
   .worldLocations > div > .city {
     width: 120px;
     height: 120px;
     position: relative;
-    left: 55%;
+    left: 14%;
     transform: translate(-50%);
   } 
+
+  .worldLocations > div:hover{
+    transform: scale(1.2);
+  }

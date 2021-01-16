@@ -109,6 +109,45 @@ app.get('/getWeather', (req, res)=> {
     
 })
 
+app.get('/getWeather2', (req, res)=> {
+    console.log(req.query);
+    if (req.query.address) {
+        let units = req.query.units || 'f';
+        debugger
+        return geoCode(req.query.address, (error, response)=> {
+            if (error) {
+                return res.render('404', {
+                    title,
+                    name: "Sumanth",
+                    date
+                })
+            }
+            const {lat, lon} = response
+            displayweather (lat, lon, units, (err, resp)=> {
+                if (err || resp.body.success === false) {
+                    return console.log('There is an error')
+                }
+                res.send({
+                    title,
+                    name: "Sumanth",
+                    date,
+                    location : `${resp.body.location.region}, ${resp.body.location.country}`,
+                    weather: `Now ${resp.body.current.temperature} F <br> Feels like ${resp.body.current.feelslike}`,
+                    icon: resp.body.current.weather_icons[0],
+                    resp: resp.body
+                })
+            })
+        })
+    } else {
+        res.render('weather', {
+            title,
+            name: "Sumanth",
+            date
+        })
+    }
+    
+})
+
 app.get('*', (req, res)=> {
     res.render('404', {
         title,

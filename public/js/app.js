@@ -3,6 +3,7 @@ const worldLocations = document.querySelector('#worldLocations')
 let coords = {}
 let date = ''
 let listItem =0;
+let complete = false;
 
 const cities = {
   0: 'Delhi',
@@ -55,6 +56,9 @@ let updateWorldWeather = ()=> {
         let weatherInfo = data.weatherData
         cityWeatherInfoDiv.innerHTML = `Cloud Cover:${weatherInfo.cloudcover} <br> Humidity:${weatherInfo.humidity} <br> UV-Index:${weatherInfo.uv_index}  <br> Visibility:${weatherInfo.visibility}`
         listItem++
+        if (listItem === 9) {
+          complete = true;
+        }
       })
     }
   })
@@ -107,8 +111,11 @@ let buildCountryDoms = () => {
 }
 
 worldLocations.addEventListener('click', (e)=> {
-  console.log('Hello')
-  updateWorldWeather()
+  if (!complete) {
+    console.log('Hello')
+    updateWorldWeather()
+  }
+  
 })
 
 buildCountryDoms()

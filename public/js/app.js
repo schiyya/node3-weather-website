@@ -12,9 +12,9 @@ const cities = {
   3: 'Birmingham',
   4: 'California',
   5: 'Dubai',
-  6: 'Vancouver',
-  7: 'Mexico City',
-  8: 'Sydney'
+  6: 'Mexico City',
+  7: 'Sydney',
+  8: 'Seattle'
 }
 
 displayWeather = (location)=> {
@@ -105,9 +105,6 @@ let buildCountryDoms = () => {
   for (var i=0; i<9; i++) {
     builder(i)
   }
-  // document.querySelector('.city-weather-text').addEventListener('click', function(event){
-  //   event.stopPropagation();
-  // });
 }
 
 worldLocations.addEventListener('click', (e)=> {

@@ -1,7 +1,6 @@
 body {
     font-family:  Helvetica;
     background-color:rgba(0, 0, 0, 0.8);
-    text-shadow: 1px 1px 15px black;
     color: white;
     background-image: url('../images/mainBg.jpeg');
 }
@@ -196,6 +195,13 @@ button:hover {
     left: 50%;
     transform: translate(-50%);
     border-radius: 5px;
+    background-color: #ffffffdd;
+    color: black;
+}
+
+.allLocations:hover {
+    
+    cursor: pointer;
 }
 
 .worldLocations {
@@ -235,13 +241,13 @@ button:hover {
 
 
   .worldLocations > div > .city-weather-info-text {
-    width: 120px;
+    width: 100px;
     height: auto;
     margin: 0px 5px 0px 5px;
     border-radius: 5px;
     font-weight: bold;
     text-align: left;
-    font-size: 16px;
+    font-size: 14px;
     top: 10px;
   }
 
@@ -256,7 +262,7 @@ button:hover {
   
   
   .worldLocations > div > .city {
-    width: 120px;
+    width: 136px;
     height: 120px;
     position: relative;
     left: 14%;
@@ -265,4 +271,5 @@ button:hover {
 
   .worldLocations > div:hover{
     transform: scale(1.2);
+    cursor: pointer;
   }

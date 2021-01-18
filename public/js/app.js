@@ -19,10 +19,13 @@ const cities = {
 }
 
 displayWeather = (location)=> {
+  document.getElementById('response').style.display = 'block';
+  document.getElementById("location").innerHTML = '';
+  document.getElementById("weatherText").innerHTML = 'Loading...!!!';
+  document.getElementById('weatherIcon').src = '';
     fetch('/getWeather?address=' + location).then((response)=> {
       response.json().then((data)=> {
         console.log(data);
-        document.getElementById('response').style.display = 'block';
         document.getElementById("location").innerHTML = data.location;
         document.getElementById("weatherText").innerHTML = data.weather;
         document.getElementById('weatherIcon').src = data.icon;

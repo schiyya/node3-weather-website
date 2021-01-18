@@ -1,5 +1,5 @@
 body {
-    font-family:  Helvetica;
+    font-family: Arial, Helvetica, sans-serif;
     background-color:rgba(0, 0, 0, 0.8);
     color: white;
     background-image: url('../images/mainBg.jpeg');
@@ -281,3 +281,69 @@ button:hover {
       background-color: green;
       left: 200px;
   }
+
+  #wallpapers {
+      position: relative;
+      width:98%;
+      height: auto;
+      background-color: rgb(255, 250, 240, 0.5);
+      color: black;
+      top: 25px;
+      padding: 20px;
+      border-radius: 5px;
+      display: grid;
+      /* justify-content: space-evenly; */
+      align-content: center;
+      grid-template-columns: auto auto auto; /*Make the grid smaller than the container*/
+      grid-gap: 10px;
+  }
+
+
+
+    #wallpapers > img {
+        margin: 5px 0px 5px 0px;
+        transition: 0.8s;
+    }
+
+    #wallpapers > img:hover{
+        transform: scale(1.2);
+        cursor: pointer;
+    }
+
+    #wallPosterparent {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        display: flex;
+        width: 40%;
+        height: 40%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #wallPosterparent .wallsPosterImage {
+        position: relative;
+       
+    }
+
+    #wallPosterparent #closeX {
+        position: relative;
+        margin-left: 25px;
+        font-size: 26px;
+        top: -5px;
+    }
+
+    .blur {
+        filter: blur(8px);
+        -webkit-filter: blur(8px);
+    }
+
+    .hover {
+        cursor: pointer;
+    }
+
+    .noHover{
+        pointer-events: none;
+    }

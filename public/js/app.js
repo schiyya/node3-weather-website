@@ -1,5 +1,6 @@
 const weatherForm = document.querySelector('form')
 const worldLocations = document.querySelector('#worldLocations')
+const countryDoms = null
 let coords = {}
 let date = ''
 let listItem =0;
@@ -37,35 +38,22 @@ displayWeather = (location)=> {
   })
 
 
-let updateWorldWeather = ()=> {
-  listItem = 0
-  let promiseList = [];
-  for (var i=0; i<9; i++) {
-    let w = fetcher(cities[i], i)
-    promiseList.push(w);
-  }
-  
-  Promise.all(promiseList).then((resultList)=> {
-    for (var list in resultList) {
-      resultList[list].json().then((data)=> {
-        let cityTextDiv = document.querySelector('#city-weather-text' + listItem)
-        cityTextDiv.innerHTML = '<b>' + data.location + '</b>' + '<br>' + data.weather;
-        let cityImageDiv = document.querySelector('#city-weather-image' + listItem)
-        cityImageDiv.src = data.icon
-        let cityWeatherInfoDiv = document.querySelector('#city-weather-info-text' + listItem)
-        let weatherInfo = data.weatherData
-        cityWeatherInfoDiv.innerHTML = `Cloud Cover:${weatherInfo.cloudcover} <br> Humidity:${weatherInfo.humidity} <br> UV-Index:${weatherInfo.uv_index}  <br> Visibility:${weatherInfo.visibility}`
-        listItem++
-        if (listItem === 9) {
-          complete = true;
-        }
-      })
-    }
+let updateWorldWeather = (id)=> {
+  fetcher(cities[id]).then((resultList)=> {
+    resultList.json().then((data)=> {
+      let cityTextDiv = document.querySelector('#city-weather-text' + id)
+      cityTextDiv.innerHTML = '<b>' + data.location + '</b>' + '<br>' + data.weather;
+      let cityImageDiv = document.querySelector('#city-weather-image' + id)
+      cityImageDiv.src = data.icon
+      let cityWeatherInfoDiv = document.querySelector('#city-weather-info-text' + id)
+      let weatherInfo = data.weatherData
+      cityWeatherInfoDiv.innerHTML = `Cloud Cover:${weatherInfo.cloudcover} <br> Humidity:${weatherInfo.humidity} <br> UV-Index:${weatherInfo.uv_index}  <br> Visibility:${weatherInfo.visibility}`
+    })
   })
 
 }
 
-let fetcher = (location, id) => {
+let fetcher = (location) => {
   return new Promise((resolve)=> {
     let response = fetch('/getWeather2?address=' + location);
     resolve(response);
@@ -81,6 +69,7 @@ let builder = (id) => {
   // color = color + 'DD'
   let weatherdiv = document.createElement("div");
   weatherdiv.setAttribute('id', 'city-weather' + id)
+  weatherdiv.countryId = id
   let weatherdivImg = document.createElement("img")
   weatherdivImg.setAttribute('id', 'city-weather-image' + id)
   let weatherdivText = document.createElement('div')
@@ -98,6 +87,7 @@ let builder = (id) => {
   weatherdiv.appendChild(weatherdivText)
   weatherdiv.appendChild(cityImage)
   weatherdiv.style.backgroundColor = color
+  weatherdiv.addEventListener('click', clickFunction)
   worldLocations.appendChild(weatherdiv)
 }
 
@@ -107,13 +97,16 @@ let buildCountryDoms = () => {
   }
 }
 
-worldLocations.addEventListener('click', (e)=> {
-  if (!complete) {
-    console.log('Hello')
-    updateWorldWeather()
+let clickFunction = (e) => {
+  console.log(e);
+  if (!e.currentTarget) {
+    return;
   }
-  
-})
+  let currentTarget = e.currentTarget.countryId;
+  updateWorldWeather(currentTarget)
+}
 
-buildCountryDoms()
+window.onload = function() {
+  buildCountryDoms()
+};
 

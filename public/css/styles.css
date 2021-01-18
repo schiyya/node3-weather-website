@@ -273,3 +273,11 @@ button:hover {
     transform: scale(1.2);
     cursor: pointer;
   }
+
+  #sampleCanvas {
+      position: absolute;
+      width: 300px;
+      height: 200px;
+      background-color: green;
+      left: 200px;
+  }

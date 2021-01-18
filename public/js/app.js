@@ -42,13 +42,15 @@ displayWeather = (location)=> {
 
 
 let updateWorldWeather = (id)=> {
+  let cityWeatherInfoDiv = document.querySelector('#city-weather-info-text' + id)
+  cityWeatherInfoDiv.innerHTML = 'Fetching local weather.......'
   fetcher(cities[id]).then((resultList)=> {
     resultList.json().then((data)=> {
       let cityTextDiv = document.querySelector('#city-weather-text' + id)
       cityTextDiv.innerHTML = '<b>' + data.location + '</b>' + '<br>' + data.weather;
       let cityImageDiv = document.querySelector('#city-weather-image' + id)
       cityImageDiv.src = data.icon
-      let cityWeatherInfoDiv = document.querySelector('#city-weather-info-text' + id)
+      
       let weatherInfo = data.weatherData
       cityWeatherInfoDiv.innerHTML = `Cloud Cover:${weatherInfo.cloudcover} <br> Humidity:${weatherInfo.humidity} <br> UV-Index:${weatherInfo.uv_index}  <br> Visibility:${weatherInfo.visibility}`
     })

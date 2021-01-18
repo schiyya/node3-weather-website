@@ -26,10 +26,12 @@ let clickFunction = (e)=> {
     wallPosterClose.addEventListener('click', closeMe)
     wallPoster.appendChild(wallPosterImage)
     wallPoster.appendChild(wallPosterClose)
+    wallPoster.style.top = (window.pageYOffset + 360) + 'px'
     wallbody.appendChild(wallPoster)
     wallsDiv.classList.add('blur')
     wallsDiv.classList.add('noHover')
     wallPosterClose.classList.add('hover')
+    let offset = window.pageYOffset;
 }
 
 let closeMe = (e)=> {

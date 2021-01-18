@@ -13,14 +13,14 @@ var blockSize = 5, // only visit every 5 pixels
         let width = canvas.width
         var context = canvas.getContext('2d');
         context.drawImage(img, 10, 10);
-        // dom.appendChild(canvas)
+        dom.appendChild(canvas)
         return context.getImageData(x, y, width, height);
     }
   
   
 
   window.onload = function() {
-    let sampleCanvas = document.querySelector('body')
+    let bodyElement = document.querySelector('body')
     let data = getPixel('../images/sumanth.jpeg', 0, 0); // [255, 255, 255, 0];
     let length = data.data.length;
     let i = -4, count = 0
@@ -35,6 +35,6 @@ var blockSize = 5, // only visit every 5 pixels
     rgb.b = ~~(rgb.b/count);
     var bgColorR = 'rgb(' + rgb.r + ',' + rgb.g + ',' + rgb.b + ', 1)'
     var bgColorL = 'rgb(' + rgb.r + ',' + rgb.g + ',' + rgb.b + ', 0)'
-    sampleCanvas.style.backgroundImage = 'linear-gradient(to right, ' + bgColorR + ',' + bgColorL + ')'
+    bodyElement.style.backgroundImage = 'linear-gradient(to right, ' + bgColorR + ',' + bgColorL + ')'
   };
   

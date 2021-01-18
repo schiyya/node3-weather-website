@@ -2,12 +2,11 @@ const wallsDiv = document.querySelector('#wallpapers')
 const wallbody = document.querySelector('body')
 
 window.onload = ()=> {
-    for (let i=1; i<11; i++) {
+    for (let i=1; i<6; i++) {
         let wall = document.createElement('img');
-        wall.src = '../images/walls/w' + i + '.jpeg'
-         let parentWidth = wallsDiv.width/3;
+        wall.src = '../images/poornima/p' + i + '.jpeg'
         wall.style.width = '98%'
-        wall.style.height = '480px'
+        wall.style.height = '540px'
         wall.addEventListener('click', clickFunction)
         wallsDiv.appendChild(wall)
     }
@@ -31,7 +30,6 @@ let clickFunction = (e)=> {
     wallsDiv.classList.add('blur')
     wallsDiv.classList.add('noHover')
     wallPosterClose.classList.add('hover')
-    let offset = window.pageYOffset;
 }
 
 let closeMe = (e)=> {

@@ -8,6 +8,15 @@
     <body>
          {{>date}}
         {{>header}}
+        <form>
+            <label class="mainLabelName" for="paintings">Choose a category:</label>
+            <select name="paintings" id="paintings">
+                <option value="poornima">Poornima</option>
+                <option value="wallpapers">Wallpapers</option>
+            </select>
+            <br><br>
+            <input class = "submitButton" type="submit" value="Submit">
+        </form>
         <div id="wallpapers">
             
         </div>

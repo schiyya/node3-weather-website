@@ -1,10 +1,20 @@
 const wallsDiv = document.querySelector('#wallpapers')
 const wallbody = document.querySelector('body')
-
+const form = document.querySelector('form')
 window.onload = ()=> {
-    for (let i=1; i<6; i++) {
+    loadGrid('paintings')
+}
+
+let loadGrid = (type) => {
+    let path = 'poornima/p'
+    let level = 6;
+    if (type === 'wallpapers') {
+        path = 'walls/w'
+        level = 11
+    } 
+    for (let i=1; i<level; i++) {
         let wall = document.createElement('img');
-        wall.src = '../images/poornima/p' + i + '.jpeg'
+        wall.src = '../images/' + path + i + '.jpeg'
         wall.style.width = '98%'
         wall.style.height = '540px'
         wall.addEventListener('click', clickFunction)
@@ -38,3 +48,17 @@ let closeMe = (e)=> {
     wallsDiv.classList.remove('blur')
     wallsDiv.classList.remove('noHover')
 }
+
+let cleanGrid = ()=> {
+    while(wallsDiv.childNodes.length > 0) {
+        wallsDiv.removeChild(wallsDiv.childNodes[0])
+    }
+}
+
+form.addEventListener('submit', (e)=> {
+    console.log(e)
+    let selectedItem = document.getElementById('paintings')
+    cleanGrid();
+    loadGrid (selectedItem.value)
+    e.preventDefault();
+})

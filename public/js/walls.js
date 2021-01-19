@@ -62,3 +62,10 @@ form.addEventListener('submit', (e)=> {
     loadGrid (selectedItem.value)
     e.preventDefault();
 })
+
+wallbody.onscroll = () => {
+    let wallpaper = document.getElementById('wallPosterparent')
+    if (wallpaper) {
+        wallpaper.style.top = (window.pageYOffset + 360) + 'px'
+    }
+}

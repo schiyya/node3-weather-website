@@ -121,19 +121,20 @@ a {
 
 .mainLabelName {
     background-color: rgb(5, 11, 32, 0.3);
-    font-size: 20px;
+    font-size: 18px;
     padding: 5px;
     font-weight: bold;
     border-radius: 5px;
 }
 
-#paintings {
+#gridItems {
     background-color: lightgray;
-    font-size: 20px;
+    font-size: 18px;
     padding: 5px;
     font-weight: bold;
     border-radius: 5px;
     border: 1px solid black;
+    margin-left: 10px;
 }
 
 .submitButton {

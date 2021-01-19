@@ -57,7 +57,7 @@ let cleanGrid = ()=> {
 
 form.addEventListener('submit', (e)=> {
     console.log(e)
-    let selectedItem = document.getElementById('paintings')
+    let selectedItem = document.getElementById('gridItems')
     cleanGrid();
     loadGrid (selectedItem.value)
     e.preventDefault();
